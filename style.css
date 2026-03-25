@@ -1,0 +1,151 @@
+:root {
+  --bg-1: #23050f;
+  --bg-2: #470b1d;
+  --card: rgba(255, 241, 246, 0.09);
+  --text: #ffeef5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Nunito", system-ui, sans-serif;
+  color: var(--text);
+  background: radial-gradient(circle at top, #6f1530, var(--bg-1) 45%, var(--bg-2) 100%);
+  overflow-x: hidden;
+  padding-left: max(1rem, env(safe-area-inset-left));
+  padding-right: max(1rem, env(safe-area-inset-right));
+  padding-bottom: max(1rem, env(safe-area-inset-bottom));
+}
+
+.bg-glow {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 20% 30%, rgba(255, 93, 135, 0.3), transparent 35%),
+    radial-gradient(circle at 80% 20%, rgba(255, 130, 155, 0.25), transparent 35%);
+}
+
+.hero,
+.card {
+  width: min(920px, 100%);
+  margin: 1rem auto;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 24px;
+  background: var(--card);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.3);
+}
+
+.hero {
+  text-align: center;
+  padding: 2.2rem 1rem 2rem;
+}
+
+h1,
+h2 {
+  margin-top: 0.4rem;
+  margin-bottom: 0.8rem;
+}
+
+h1 {
+  font-family: "Sacramento", cursive;
+  font-size: clamp(2.9rem, 10vw, 5rem);
+  font-weight: 400;
+  line-height: 1;
+}
+
+h2 {
+  font-size: clamp(1.3rem, 5.2vw, 2rem);
+  text-align: center;
+}
+
+.hero-text {
+  font-size: clamp(1.1rem, 4.2vw, 1.25rem);
+  line-height: 1.5;
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.btn {
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+  padding: 0.95rem 1.25rem;
+  width: min(100%, 360px);
+  min-height: 50px;
+  font-size: clamp(0.95rem, 3.8vw, 1.1rem);
+  font-weight: 800;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  transition: transform 0.18s ease, background 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.btn.primary {
+  border-color: transparent;
+  background: linear-gradient(90deg, #ff3d67, #ff6f91);
+}
+
+.card {
+  padding: 1.2rem 1rem;
+}
+
+.roses-grid {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.65rem;
+  font-size: clamp(1.6rem, 6vw, 2.1rem);
+  text-align: center;
+}
+
+.final {
+  margin-bottom: 2.3rem;
+  text-align: center;
+}
+
+#petalos {
+  pointer-events: none;
+}
+
+.petal {
+  position: fixed;
+  top: -10vh;
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+  animation: caer linear forwards;
+  filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.3));
+}
+
+@keyframes caer {
+  to {
+    transform: translateY(120vh) rotate(560deg);
+    opacity: 0.2;
+  }
+}
+
+@media (max-width: 460px) {
+  .hero,
+  .card {
+    border-radius: 18px;
+  }
+
+  .hero {
+    padding-top: 1.9rem;
+  }
+
+  .roses-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
